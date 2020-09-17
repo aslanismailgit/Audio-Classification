@@ -1,0 +1,89 @@
+{% extends "template.html" %}
+
+{% block title %}Predict{% endblock %}
+
+{% block main %}
+
+<div class="container mb-3" ;>
+  <div class="row d-flex justify-content-center">
+    <div class="col-9">
+      <h1>Prediction</h1>
+      <hr>
+
+      {% if prediction %}
+      <div class="alert alert-primary" role="alert">
+        Hi : {{ prediction.label }}. Is that you?
+      </div>
+      {% endif %}
+      <hr>
+      <form action="/selectmodel" method="POST" enctype="multipart/form-data">
+
+        <div class="form-group">
+          <label>Select a model</label>
+          <div class="input-group mb-3">
+            {% for model in modellist %}
+
+            <div class="input-group-prepend m-3">
+              <input name="selecmodel" type="text" class="form-control" value="{{model}}" readonly>
+              <div class="input-group-text">
+                <input for="selecmodel" id="{{model}}" name="{{model}}" name="{{model}}" type="checkbox"
+                  aria-label="{{model}}">
+              </div>
+            </div>
+
+            {% endfor %}
+          </div>
+        </div>
+        <button name="submit_button" value="select" type="submit" class="btn btn-primary m-3">Select this model</button>
+        <button name="submit_button" value="delete" type="submit" class="btn btn-danger m-3">Delete selected
+          models</button>
+
+        {% if modelnameforprediction %}
+        <h4 class="m-3">Selected model is : {{ modelnameforprediction }}</h4>
+        {% endif %}
+      </form>
+      <hr>
+
+
+
+      <div class="row">
+        <div class="col mb-3">
+
+          <canvas id="analyser" style="background-color:#f1f1f1" width="800" height="150"></canvas>
+
+
+          <form action="/recordtest" method="POST" enctype="multipart/form-data">
+
+            <p>
+              <button id="teststart" class="btn btn-success" onclick="startRecordingtest()" disabled>Start</button>
+              <button id="teststop" class="btn btn-danger" onclick="stopRecordingtest()" disabled>Stop</button>
+              <button id="testreload" class="btn btn-info" onClick="window.location.reload();"> New test record
+              </button>
+              <button style="visibility: hidden" id="testinit" class="btn btn-info" onclick="unpausetest()">Create
+                user</button>
+            </p>
+          </form>
+
+          <div class="col mb-3">
+            <form action="/predict" method="POST" enctype="multipart/form-data">
+              <button type="submit" class="btn btn-primary">Make a prediction</button>
+            </form>
+          </div>
+
+          <div class="alert alert-secondary mb-3" role="alert">
+            Start and read below text !!!
+          </div>
+
+          <div class="alert alert-primary mb-3" role="alert">
+            Makine öğrenimi kuramı ve istatistik temelde farklı kavramlar olsalar da birbiriyle yakından ilintilidir.
+          </div>
+          <hr>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+{% endblock %}

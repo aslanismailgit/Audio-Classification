@@ -1,0 +1,89 @@
+{% extends "template.html" %}
+
+{% block title %}Train{% endblock %}
+
+{% block main %}
+
+<div class="container mb-3">
+  <div class="row d-flex justify-content-center">
+    <div class="col-9">
+      
+      <h1>Train model</h1>
+      <hr>
+      <form action="/train" method="POST" enctype="multipart/form-data">
+        <div class="form-group">
+          <label for="modelname">Enter model name</label>
+          <input type="text" class="form-control" id="modelname" name="modelname" aria-describedby="modelname">
+          <small class="form-text text-muted">Please enter a name for the model</small>
+        </div>
+        <div class="row m-3">
+        <button onclick="loaderFunction()" type="submit" class="btn btn-primary m-3">Start</button>
+
+        <h2 class="m-3" id="trainFinishAlert" style="visibility: hidden;">Training is going on... Please wait...</h2>
+      </div>
+      </form>
+
+      <hr>
+      {% if res %}
+      <h2 class="m-3">Model is ready</h2>
+      <h2 class="m-3">Model Name : {{ res.modelname }}</h2>
+      <!-- <p>Model Name : {{ res.modelname }}</p> -->
+      {% endif %}
+      
+      
+      <!--script src="{{ url_for('static', filename='saved_model/model3/history1.js') }}"></script-->
+      <hr>
+        <div class="row">
+          <div class="col">
+            <h1>Plot accuracy and lost</h1>
+            <hr>
+            <form class="m-3" action="/plot_chart" method="POST" enctype="multipart/form-data">
+              <button action="/plot_chart" method="POST" type="submit" class="btn btn-primary m-3">Plot</button>
+            </form>
+            <br>
+          </div>
+        </div>
+      
+
+      <div class="container">
+        <div class="row d-flex justify-content-center">
+          <div class="col">
+            <div id="loss_chart" style="width: 900px; height: 500px"></div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="container">
+        <div class="row d-flex justify-content-center">
+          <div class="col">
+            <div id="accuracy_chart" style="width: 900px; height: 500px"></div>
+          </div>
+        </div>
+      </div>
+    
+    </div>
+  </div>
+</div>
+
+
+<script src="{{ url_for('static', filename='js/plot_chart.js') }}"></script>
+
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<meta id="my-data" data-name="{{history}}">
+
+<script>
+  var datafromflask = $('#my-data').data();
+  historyData = Object.values(datafromflask)[0]
+
+
+  google.charts.load('current', { 'packages': ['line'] });
+  google.charts.setOnLoadCallback(drawChartLoss);
+  google.charts.setOnLoadCallback(drawChartAccuracy);
+  </script>
+  <script>
+  function loaderFunction() {
+    document.getElementById("trainFinishAlert").style.visibility = 'visible';
+  }
+
+</script>
+{% endblock %}

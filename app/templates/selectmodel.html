@@ -1,0 +1,42 @@
+{% extends "template.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block main %}
+
+<div class="container mb-3">
+  <div class="row d-flex justify-content-center">
+    <div class="col-9">
+      <h1>Home</h1>
+      <hr>
+    </div>
+
+
+
+    <form action="/selectmodel" method="POST" enctype="multipart/form-data">
+
+      <div class="form-group">
+        <label>Select a model</label>
+        {% for model in modellist %}
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <input name="selecmodel" type="text" class="form-control" value="{{model}}" readonly>
+            <div class="input-group-text">
+              <input for="selecmodel" id="{{model}}" name="{{model}}" name="{{model}}" type="checkbox"
+                aria-label="{{model}}">
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+
+      </div>
+      <button type="submit" class="btn btn-primary">Go</button>
+    </form>
+    <hr>
+
+
+    <p>{{modellist}}</p>
+  </div>
+</div>
+
+{% endblock %}

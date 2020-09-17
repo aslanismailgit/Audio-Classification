@@ -1,0 +1,42 @@
+{% extends "template.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block main %}
+
+<div class="container mb-3" style="color: #f1f1f1" ;>
+  <div class="row d-flex justify-content-center">
+    <div class="col-9">
+      
+      <div class="alert alert-success" role="alert">
+        <h1>Welcome to Machine Learning for Audio App</h1>
+      </div>
+      
+      <div class="alert alert-success" role="alert">
+        <h2>How to use this app</h2>
+
+        <h6>This app is designed to discriminate two different "sound" sources, such as two human voices.
+          Follow below steps to see how well Machine Learning is performing.
+        </h6>
+      </div>
+      
+      <div class="alert alert-success" role="alert">
+        <ul class="list-group list-group-flush" ;>
+          <li class="list-group-item bg-transparent">1. Record your voice</li>
+          <li class="list-group-item bg-transparent">2. Prepare data and train a Machine Learning Model</li>
+          <li class="list-group-item bg-transparent">3. Make a test record</li>
+          <li class="list-group-item bg-transparent">4. Make a prediction</li>
+        </ul>
+      </div>
+      
+      <div class="alert alert-success" role="alert">
+        <h4>Enjoy it</h4>
+      </div>
+    
+    </div>
+  </div>
+</div>
+
+
+
+{% endblock %}

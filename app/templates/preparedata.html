@@ -1,0 +1,55 @@
+{% extends "template.html" %}
+
+{% block title %}Prepare Data{% endblock %}
+
+{% block main %}
+
+<div class="container mb-3">
+  <div class="row d-flex justify-content-center">
+    <div class="col-9">
+      <h1>Prepare data</h1>
+      <hr>
+
+      <form action="/preparedata" method="POST" enctype="multipart/form-data">
+
+        <div class="form-group">
+          <label>Select 2 users</label>
+          <div class="input-group mb-3">
+            {% for user in userslist %}
+
+            <div class="input-group-prepend m-3">
+              <input name="selectuser" type="text" class="form-control" value="{{user}}" readonly>
+              <div class="input-group-text">
+                <input for="selectuser" id="{{user}}" name="{{user}}" name="{{user}}" type="checkbox"
+                  aria-label="{{user}}">
+              </div>
+            </div>
+
+            {% endfor %}
+          </div>
+        </div>
+        <hr>
+        <button name="submit_button" value="delete" type="submit" class="btn btn-danger m-3">Delete selected
+          users</button>
+
+        <button onclick="loaderFunction()" name="submit_button" value="select" type="submit"
+          class="btn btn-primary m-3">Prepare data for selected
+          users</button>
+        {% if dataready %}
+        <h4 class="m-3">Data is ready</h4>
+        {% endif %}
+        <br>
+        <h4 class="m-3" id="dataPrepAlert" style="visibility: hidden;">Data is being prepared... Please wait...</h4>
+
+      </form>
+
+    </div>
+  </div>
+</div>
+
+<script>
+  function loaderFunction() {
+    document.getElementById("dataPrepAlert").style.visibility = 'visible';
+  }
+</script> 
+{% endblock %}

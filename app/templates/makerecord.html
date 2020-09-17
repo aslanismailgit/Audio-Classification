@@ -1,0 +1,54 @@
+{% extends "template.html" %}
+
+{% block title %}Make Record{% endblock %}
+
+
+{% block main %}
+
+<div class="container mb-3">
+    <div class="row d-flex justify-content-center">
+        <div class="col-9">
+            <h1>Make a record</h1>
+            <hr>
+
+
+            <div class="container">
+                <canvas id="analyser" style="background-color:#f1f1f1" width="800" height="250"></canvas>
+
+                <div class="form-group">
+                    <label>Enter your name</label>
+                    <div class="input-group mb-3">
+                        <input id="name" type="text" class="form-control" placeholder="Enter your name"
+                            aria-label="Recipient's username" aria-describedby="button-addon2">
+                    </div>
+                </div>
+                <p>
+                    <button id="init" class="btn btn-info" onclick="unpause()">Create user</button>
+                    <button id="start" class="btn btn-success" onclick="startRecording()" disabled>Start</button>
+                    <button id="stop" class="btn btn-danger" onclick="stopRecording()" disabled>Stop</button>
+                    <button id="reload" class="btn btn-info" onClick="window.location.reload();"> New user </button>
+
+                </p>
+
+                <!--textarea id="output" style="width: 100%;height: 50px" readonly></textarea-->
+
+                <div class="alert alert-secondary" role="alert">
+                    Start and read below text !!!
+                </div>
+                <textarea id="texttoread" style="width: 100%;height: 300px" readonly>
+        Yapay zekâ, bir bilgisayarın veya bilgisayar kontrolündeki bir robotun çeşitli faaliyetleri zeki canlılara benzer şekilde yerine getirme kabiliyeti olarak tanımlanabilir. Yapay zekâ çalışmaları genellikle insanın düşünme yöntemlerini analiz ederek bunların benzeri yapay yönergeleri geliştirmeye yöneliktir.
+        Bir bakış açısına göre, programlanmış bir bilgisayarın düşünme girişimi gibi görünse de bu tanımlar günümüzde hızla değişmekte, öğrenebilen ve gelecekte insan zekâsından bağımsız gelişebilecek bir yapay zekâ kavramına doğru yeni yönelimler oluşmaktadır. Bu yönelim, insanın evreni ve doğayı anlama çabasında kendisine yardımcı olabilecek belki de kendisinden daha zeki, insan ötesi varlıklar meydana getirme düşünün bir ürünüdür. Bu düş, 1920'li yıllarda yazılan ve sonraları bazı yazarları etkileyen modern bilimkurgu edebiyatının öncü yazarlarının eserlerinde dışa vurmuştur. 1920 yılında bir tiyatro oyununda yapay zekâya sahip robotlar ile insanlığın ortak toplumsal sorunları ele alınarak yapay zekânın insan aklından bağımsız gelişebileceği öngörülmüştü. (DUR)
+        Makine öğrenimi, bilgisayarların algılayıcı verisi ya da veritabanları gibi veri türlerine dayalı öğrenimini olanaklı kılan algoritmaların tasarım ve geliştirme süreçlerini konu edinen bir bilim dalıdır(TEST DUR). Makine öğrenimi araştırmalarının odaklandığı konu bilgisayarlara karmaşık örüntüleri algılama ve veriye dayalı akılcı kararlar verebilme becerisi kazandırmaktır. Bu, makine öğreniminin istatistik, olasılık kuramı, veri madenciliği, örüntü tanıma, yapay zekâ, uyarlamalı denetim ve kuramsal bilgisayar bilimi gibi alanlarla yakından ilintili olduğunu göstermektedir.
+        Makine öğreniminin başlıca uygulamaları makine algılaması, bilgisayarlı görme, doğal dil işleme, söz dizimsel örüntü tanıma, arama motorları, tıbbi tanı, biyo informatik, beyin-makine arayüzleri ve kimin formatik, kredi kartı dolandırıcılığı denetimi, borsa çözümlemesi, DNA dizilerinin sınıflandırılması, konuşma ve el yazısı tanıma, bilgisayarlı görmede nesne tanıma, oyun oynama, yazılım mühendisliği, uyarlamalı web siteleri ve robot gezisidir.
+        Makine öğrenimi sistemlerinin bir bölümü insan sezgisine olan gereksinimi tümüyle ortadan kaldırmaya çalışırken bazıları insan ve makine arasında işbirliğine dayalı bir yaklaşım benimsemektedir. Ne var ki, sistemi tasarlayan kişinin verinin kodlanma biçimi üzerinde tümüyle egemen oluşu insan sezgisinin tümüyle ortadan kaldırılmasını olanaksızlaştırmaktadır. Makine öğrenimi deneysel yöntemin otomatikleştirilmesi çabası olarak görülmektedir.
+        Bazı istatistiksel makine öğrenimi araştırmacıları Bayes istatistiği çerçevesi kapsamında kullanılabilen yöntemler geliştirmektedirler.
+        Makine öğrenimi algoritmaları ve bunların başarımına ilişkin berimsel çözümleme berimsel öğrenme kuramı olarak adlandırılan bir kuramsal bilgisayar bilimi dalıdır. Deney kümelerinin sonlu oluşu ve geleceğin tam olarak kestirilememesi nedeniyle öğrenme kuramı söz konusu algoritmaların başarımına ilişkin mutlak güvence verememektedir. Bunun yerine, başarımın olasılıksal sınırları öngörülmeye çalışılmaktadır.
+        Berimsel öğrenme kuramcıları başarım sınırlarının yanı sıra öğrenmenin zaman karmaşıklığı ve uygulanabilirliği konusunda da çalışmaktadırlar. Berimsel öğrenme kuramında bir berimin uygulanabilir olması için polinomsal zamanda çalışması gerekmektedir. Zaman karmaşıklığı sonuçları iki öbeğe ayrılabilmektedir. Olumlu sonuçlar belirli bir işlev sınıfının polinomsal zamanda öğrenilebileceğini gösterirken olumsuz sonuçlar bu olgunun tam karşıtını ifade etmektedir.
+        Makine öğrenimi kuramı ve istatistik temelde farklı kavramlar olsalar da birbiriyle yakından ilintilidir.
+    </textarea>
+            </div>
+
+        </div>
+    </div>
+</div>
+{% endblock %}
