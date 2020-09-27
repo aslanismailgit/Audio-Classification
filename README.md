@@ -7,4 +7,6 @@ Steps:
 4.	Save model
 5.	Record a sample for prediction
 6.	Make the prediction
-Since the purpose of this app is to demonstrate integration, model performance may not be too good (can be much better using different structures). 
+Since the purpose of this app is to demonstrate integration, model performance may not be too good (can be much better using different structures).
+
+![alt text](https://github.com/aslanismailgit/Audio-Classification/blob/master/images/home.png)
