@@ -10,3 +10,11 @@ Steps:
 Since the purpose of this app is to demonstrate integration, model performance may not be too good (can be much better using different structures).
 
 ![alt text](https://github.com/aslanismailgit/Audio-Classification/blob/master/images/home.png)
+
+![alt text](https://github.com/aslanismailgit/Audio-Classification/blob/master/images/makeRecord.png)
+
+![alt text](https://github.com/aslanismailgit/Audio-Classification/blob/master/images/prepareData.png)
+![alt text](https://github.com/aslanismailgit/Audio-Classification/blob/master/images/trainModel.png)
+![alt text](https://github.com/aslanismailgit/Audio-Classification/blob/master/images/loss.png)
+![alt text](https://github.com/aslanismailgit/Audio-Classification/blob/master/images/accuracy.png)
+![alt text](https://github.com/aslanismailgit/Audio-Classification/blob/master/images/prediction.png)
